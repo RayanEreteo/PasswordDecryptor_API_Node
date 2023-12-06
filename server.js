@@ -1,7 +1,9 @@
 const express = require("express")
 const passController = require("./controllers/passController")
+const bodyParser = require("body-parser")
 
 const app = express()
+app.use(bodyParser.json())
 
 app.post("/encrypt", passController.encryptPass)
 app.post("/verify", passController.verifyHash)
